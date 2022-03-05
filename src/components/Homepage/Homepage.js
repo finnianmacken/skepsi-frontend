@@ -17,9 +17,6 @@ import TopicCardUpdated from '../TopicCardUpdated/TopicCardUpdated.js'
 
 import { Fade } from "react-awesome-reveal";
 
-import logoGif from '../../media/final-xi.gif'
-var GifPlayer = require('react-gif-player');
-
 
 // ANIMATIONS
 
@@ -33,14 +30,6 @@ function Homepage(props) {
       <div className={styles.searchBackground}>
         <div className={styles.contentWrapper}>
         <div className={styles.titleLogoWrapper}>
-          <GifPlayer
-            gif={logoGif}
-            autoplay={true}
-            style={{
-              height: "200px",
-              pointerEvents: "none",
-            }}
-            />
         </div>
           <Fade duration={2400} direction="up" triggerOnce={true}>
             <div className={styles.pitchTextWrapper}>
