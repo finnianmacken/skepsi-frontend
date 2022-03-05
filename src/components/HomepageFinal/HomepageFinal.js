@@ -83,8 +83,6 @@ function HomepageFinal(props){
 
   function handleChange(e){
     setActiveTopicIndex(e)
-    console.log("TOPIC INFO", e)
-    console.log("LENGTH", props.topics.length)
   }
 
   const arrowStyles: CSSProperties = {
