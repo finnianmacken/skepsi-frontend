@@ -9,7 +9,7 @@ import "semantic-ui-css/semantic.min.css";
 import { BrowserRouter } from "react-router-dom";
 
 // AUTH0
-import Auth0ProviderWithHistory from './components/Auth0ProviderWithHistory/Auth0ProviderWithHistory.js';
+import Auth0ProviderWithHistory from 'components/Providers/Auth0ProviderWithHistory/Auth0ProviderWithHistory.js';
 
 // REDUX
 import store from './redux/store.js'
