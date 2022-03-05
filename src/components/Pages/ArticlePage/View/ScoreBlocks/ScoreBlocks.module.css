@@ -1,0 +1,101 @@
+
+.scoreBlockList {
+    margin: 0;
+}
+
+.annotationCardScore {
+    border-bottom: 1px solid #E2E5ED;
+    display: flex;
+    flex-direction: row;
+    min-height: 70px;
+    box-sizing: border-box;
+}
+
+.scoreIndent {
+    background-color: rgb(245, 245, 245);
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    border-right: 3px solid #E2E5ED;
+}
+
+.scoreButtonWrapper {
+    border-bottom: 2px solid #E2E5ED;
+    height: 30px;
+    width: 104%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scoreButton {
+    border-radius: 100%;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(148, 105, 75, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scoreButtonText {
+    font-size: 14px;
+    color: black;
+    font-family: "Roboto";
+    font-weight: bold;
+}
+
+.scoreNumberDropdownText {
+    font-size: 11px;
+    font-family: 'Roboto'
+}
+
+.scoreMainContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.scoreLabelWrapper {
+    border-bottom: 2px solid #E2E5ED;
+    height: 30px;
+    padding-top: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.scoreLabel{
+    padding-left: 4px;
+    padding-right: 5px;
+    font-size: 14px;
+    font-family: "Roboto";
+    /* color: #E2E5ED; */
+}
+
+
+.dropdownWrapper {
+    padding-left: 10px;
+}
+
+.scoreResponse {
+    flex: 1;
+    padding: 5px;
+    padding-bottom: 0px;
+}
+
+.scoreDeleteButtonWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.flexComponent {
+    flex: 1
+}
+
+.buttonText {
+    font-family: "Roboto";
+    font-weight: bold;
+}

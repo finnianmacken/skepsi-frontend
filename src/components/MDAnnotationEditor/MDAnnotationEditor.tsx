@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import MDAnnotationEditorCore from "./MDAnnotationEditorCore"
-import {ContentNodeType} from "skepsi-frontend/src/utility/types.ts"
+import {ContentNodeType} from "logic/contentNode"
 
 export type MDAnnotationEditorType = {
     value?: string

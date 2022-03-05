@@ -14,12 +14,12 @@ import WebFont from 'webfontloader'
 // import TopicsRouter from './components/routers/topics-router.js'
 // import SignupRouter from './components/routers/signup-router.js'
 // import SignupAndTopicsRouter from './components/routers/signup-and-topics-router.js'
-import Router from './components/Router/Router.js'
+import Router from './components/Routers/MasterRouter.js'
 
 import {useAuth0} from "@auth0/auth0-react"
 
 import {ApolloClient, ApolloProvider, InMemoryCache} from "@apollo/client"
-import TexProvider from "./components/Tex/TexProvider"
+import TexProvider from "components/Providers/Tex/TexProvider"
 
 // STYLES
 

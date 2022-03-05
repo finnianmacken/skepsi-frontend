@@ -1,0 +1,15 @@
+
+.main {
+    resize: none;
+    border: none;
+    outline: none;
+    min-width: 100%;
+    max-width: 100%;
+    background-color: transparent;
+}
+
+.editable {
+    background-color: white;
+}
+
+/*.locked {}*/

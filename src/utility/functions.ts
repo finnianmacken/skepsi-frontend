@@ -47,6 +47,7 @@ export const testStories = (stories: any) => {
 
     for (let name in stories) {
         if (name !== "default"){
+          // @ts-ignore
             toTest.push(sObject[name]) // raises linter warning
         }
     }
@@ -105,6 +106,7 @@ export const range = (start: number, stop?: number, step?: number) => {
 
     const arr = []
     while (Math.sign(start - stop) === -Math.sign(step)){
+        // @ts-ignore
         arr.push(start)
         start += step
     }
