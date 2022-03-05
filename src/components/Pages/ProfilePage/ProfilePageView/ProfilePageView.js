@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Divider, Tab } from 'semantic-ui-react';
 
-import styles from './ProfilePage.module.css'
+import styles from './ProfilePageView.module.css'
 import ProfilePageAnnotations from '../ProfilePageAnnotations/ProfilePageAnnotations.js'
 import ProfileInfo from "../ProfileInfo/ProfileInfo.js"
 
 
-function ProfilePage(){
+function ProfilePageView(){
   const { user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
   const [accessToken, setAccessToken] = useState("")
 
@@ -61,4 +61,4 @@ function ProfilePage(){
   )
 }
 
-export default ProfilePage
+export default ProfilePageView

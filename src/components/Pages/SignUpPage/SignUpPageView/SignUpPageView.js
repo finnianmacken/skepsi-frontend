@@ -2,7 +2,7 @@ import React from 'react';
 import { Reveal, Card, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
 
-function RoleSelection(){
+function SignUpPageView(){
 
   const roleCards = [
     {
@@ -59,4 +59,4 @@ function RoleSelection(){
   )
 }
 
-export default RoleSelection
+export default SignUpPageView

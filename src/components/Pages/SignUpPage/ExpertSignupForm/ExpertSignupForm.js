@@ -1,7 +1,7 @@
 import React, { useReducer, useEffect, useState } from 'react';
-import { Button, Checkbox, Form, Label, Divider, Icon } from 'semantic-ui-react'
+import { Button, Checkbox, Form, Label, Divider } from 'semantic-ui-react'
 import { gql, useMutation } from "@apollo/client"
-import { isValidEmail, isValidPassword, isValidUsername } from "../../utility/user-validators.js"
+import { isValidEmail, isValidPassword, isValidUsername } from "utility/user-validators.js"
 import { useNavigate } from 'react-router-dom'
 import auth0 from "auth0-js"
 import { useAuth0 } from "@auth0/auth0-react";
@@ -60,7 +60,7 @@ const ADD_USER = gql`
   }
 `
 
-function UserSignupForm(){
+function ExpertSignupForm(){
   const [domains, setDomains] = useState()
   const [state, dispatch] = useReducer(reducer, initialState)
   const [addUser] = useMutation(ADD_USER)
@@ -73,7 +73,6 @@ function UserSignupForm(){
   }
 
   const history = useNavigate()
-
 
   useEffect(() => {
     dispatch({type: 'emailExists', payload: false})
@@ -113,45 +112,44 @@ function UserSignupForm(){
     }
   }
     `
+  useEffect(()=>{
+    if(state.emailValid
+      && state.passwordValid
+      && state.usernameValid
+      && state.checkboxChecked
+      && !state.userError
+      && !state.emailError){
+        var webAuth = new auth0.WebAuth({
+          domain: 'skepsi.us.auth0.com',
+          clientID: 'V1VsPEgl7mgPORdnpFApnJVWLvf4xkbe',
+        });
 
-    useEffect(()=>{
-      if(state.emailValid
-        && state.passwordValid
-        && state.usernameValid
-        && state.checkboxChecked
-        && !state.userError
-        && !state.emailError){
-          var webAuth = new auth0.WebAuth({
-            domain: 'skepsi.us.auth0.com',
-            clientID: 'V1VsPEgl7mgPORdnpFApnJVWLvf4xkbe',
-          });
-
-          //auth0 signup
-          webAuth.signup({
-            connection: 'Username-Password-Authentication',
-            email: state.email,
-            username: state.username,
-            password: state.password,
-            user_metadata: {role: 'expert'},
-            }, function (error) {
-              if (error){
-                dispatch({type: 'userError', payload: true})
-              }
-            })
-
-          // django signup and redirect
-          addUser({variables:{
-            username: state.username,
-            password: state.password,
-            email: state.email,
-            domains: domains.value.join(",")
+        //auth0 signup
+        webAuth.signup({
+          connection: 'Username-Password-Authentication',
+          email: state.email,
+          username: state.username,
+          password: state.password,
+          user_metadata: {role: 'expert'},
+          }, function (error) {
+            if (error){
+              dispatch({type: 'userError', payload: true})
             }
-          }).then(response => loginWithRedirect())
-        }
-        else{
-          console.log("No", state)
-        }
-    }, [state.userError, state.emailError])
+          })
+
+        // django signup and redirect
+        addUser({variables:{
+          username: state.username,
+          password: state.password,
+          email: state.email,
+          domains: domains.value.join(",")
+          }
+        }).then(response => loginWithRedirect())
+      }
+      else{
+        console.log("No", state)
+      }
+  }, [state.userError, state.emailError])
 
   const [UserOrEmailIsInDatabase] = useMutation(CHECK_FOR_USER_AND_EMAIL, {errorPolicy:'all'})
 
@@ -178,11 +176,11 @@ function UserSignupForm(){
     .catch(error => console.log('Check for User Error:', error))
     } // handleSubmit()
 
-
   /* LOGGING STUFF FOR DEBUG */
   useEffect(() => {
     console.log(state)
-  }, [state])
+    console.log('HERE ARE THE DOMAINS', domains)
+  }, [state, domains])
 
   return(
     <div style={{margin: '4em'}}>
@@ -225,20 +223,16 @@ function UserSignupForm(){
 
       <Form.Field>
         <label>Password</label>
-        <div style={{display: "flex", flexDirection: "row"}}>
-          <input
-            name='password'
-            type='password'
-            placeholder='Password'
-            onChange={handleChange}
-            />
-        </div>
+        <input
+          name='password'
+          placeholder='Password'
+          type="password"
+          onChange={handleChange}
+          />
         {!state.passwordValid &&
           <Label basic color="red" pointing>
           Passwords must be 9 characters or more, and must contain at least one letter and one number
-
         </Label>}
-
       </Form.Field>
 
       <Form.Field>
@@ -266,4 +260,4 @@ function UserSignupForm(){
   );
 }
 
-export default UserSignupForm
+export default ExpertSignupForm

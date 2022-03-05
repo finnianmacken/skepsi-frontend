@@ -1,8 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom'
-import UserSignupForm from './UserSignupForm.js'
-import ScientistSignupForm from './ScientistSignupForm.js'
-import ExpertSignupForm from './ExpertSignupForm.js'
+import UserSignupForm from '../UserSignupForm/UserSignupForm.js'
+import ScientistSignupForm from '../ScientistSignupForm/ScientistSignupForm.js'
+import ExpertSignupForm from '../ExpertSignupForm/ExpertSignupForm.js'
 
 
 function SignupView(){

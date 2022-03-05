@@ -8,20 +8,16 @@ import HomepageManager from 'components/Pages/Homepage/HomepageManager/HomepageM
 import ErrorPageView from 'components/Pages/ErrorPage/ErrorPageView/ErrorPageView.js'
 import ArticlePageManager from 'components/Pages/ArticlePage/ArticlePageManager/ArticlePageManager.js'
 import FeaturedAnnotationsPageView from 'components/Pages/FeaturedAnnotationsPage/FeaturedAnnotationsPageView/FeaturedAnnotationsPageView.js'
-
+import ProfilePageView from 'components/Pages/ProfilePage/ProfilePageView/ProfilePageView.js'
+import SignUpPageView from 'components/Pages/SignUpPage/SignUpPageView/SignUpPageView.js'
 
 
 // import PaperCards from 'components/Pages/Homepage/PaperCards/PaperCards.js'
-import RoleSelection from '../RoleSelection/RoleSelection.js'
-import SignupView from '../SignupView/SignupView.js'
-import ProfilePage from '../ProfilePage/ProfilePage.js'
+import SignupView from 'components/Pages/SignUpPage/SignupView/SignupView'
 import Navbar from 'components/GlobalComponents/Navbar/Navbar.js'
 // import PaperCardTemplate from '../PaperCardTemplate/PaperCardTemplate.js'
 // import ScientistDomainPicker from '../ScientistDomainPicker/ScientistDomainPicker.js'
 // import FeaturedAnnotations from '../FeaturedAnnotations/FeaturedAnnotations.js'
-
-import AnnotationCardTemplate from '../AnnotationCardTemplate/AnnotationCardTemplate.js'
-import SignupHook from '../SignupHook/SignupHook.js'
 
 const GET_ALL_TOPIC_SLUGS = gql`
     query{
@@ -73,13 +69,13 @@ function MasterRouter() {
 
             <Route path='/featured-annotations' element={<FeaturedAnnotationsPageView />}/>
 
-            <Route path="/playground" element={<SignupHook />}/>
+            <Route path="/playground" element={<React.Fragment/>}/>
 
             <Route path="/broken" element={<ErrorPageView />}/>
 
-            <Route path='/user-info' element={<React.Fragment><Navbar /><ProfilePage /></React.Fragment>}/>
+            <Route path='/user-info' element={<React.Fragment><Navbar /><ProfilePageView /></React.Fragment>}/>
 
-            <Route path='/signup' element={<React.Fragment><Navbar /><RoleSelection /></React.Fragment>}/>
+            <Route path='/signup' element={<React.Fragment><Navbar /><SignUpPageView /></React.Fragment>}/>
 
             <Route path='/scientist-signup'
                    element={<React.Fragment><Navbar /><SignupView/></React.Fragment>}/>
