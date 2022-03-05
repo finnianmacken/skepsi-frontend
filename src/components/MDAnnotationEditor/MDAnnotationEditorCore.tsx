@@ -1,5 +1,5 @@
 import React from "react"
-import {mdToNode} from "../processing"
+import {mdToNode} from "src/logic/processing"
 import {MDAnnotationEditorType} from "./MDEditor"
 import styles from './MDAnnotationEditorCore.module.css'
 // import TextareaAutosize from 'react-textarea-autosize'

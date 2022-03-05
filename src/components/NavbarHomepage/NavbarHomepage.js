@@ -45,7 +45,7 @@ function NavbarHomepage() {
                             <h1 className={styles.skepsiText}>Skepsi</h1>
                         </div>
                     </Link>
-                    <Link>
+                    <Link to="">
                         <div className={styles.featuredAnnotationsWrapper}>
                             {/*<Popup
                 style={{boxShadow: "none"}}

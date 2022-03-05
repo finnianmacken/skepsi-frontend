@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom'
+import {Route, Routes, useRoutes} from 'react-router-dom'
 import {gql, useQuery} from "@apollo/client"
 import { Divider, Message } from 'semantic-ui-react'
 import HomepageManager from '../HomepageManager/HomepageManager.js'
@@ -61,69 +61,42 @@ function Router() {
   }
 
     return (
-        <Switch>
+        <Routes>
             {data && data.allTopics.map((topic) =>
-                <Route key={topic.id} path={"/".concat(topic.slug)}>
-                    <React.Fragment>
-                        <PaperCards />
-                    </React.Fragment>
-                </Route>
+                <Route key={topic.id} path={"/".concat(topic.slug)}
+                      element = {<React.Fragment><PaperCards /></React.Fragment>}
+                />
             )}
 
             {paperData && paperData.allPapers.map((paper) =>
-                <Route key={paper.id} path={"/".concat(paper.id)}>
-                    <PageManager />
-                </Route>
+                <Route key={paper.id} path={"/".concat(paper.id)} element={<PageManager />} />
             )}
 
-            <Route path="/homepage-test">
-                <HomepageFinal />
-            </Route>
+            <Route path="/homepage-test" element={<HomepageFinal />}/>
 
-            <Route path='/featured-annotations'>
-              <FeaturedAnnotationsPage />
-            </Route>
+            <Route path='/featured-annotations' element={<FeaturedAnnotationsPage />}/>
 
-            <Route path="/playground">
-                <div/>
-                <SignupHook />
-            </Route>
+            <Route path="/playground" element={<SignupHook />}/>
 
-            <Route path="/about">
-              <PitchPage />
-            </Route>
+            <Route path="/about" element={<PitchPage />}/>
 
-            <Route path="/broken">
-              <SkepsiIsBroken />
-            </Route>
+            <Route path="/broken" element={<SkepsiIsBroken />}/>
 
-            <Route path='/user-info'>
-                <React.Fragment>
-                    <NavbarHomepage />
-                    <ProfilePage />
-                </React.Fragment>
-            </Route>
+            <Route path='/user-info' element={<React.Fragment><NavbarHomepage /><ProfilePage /></React.Fragment>}/>
 
-            <Route path='/signup'>
-                <React.Fragment>
-                    <NavbarHomepage />
-                    <RoleSelection />
-                </React.Fragment>
-            </Route>
+            <Route path='/signup' element={<React.Fragment><NavbarHomepage /><RoleSelection /></React.Fragment>}/>
 
-            <Route path={['/scientist-signup', '/user-signup', '/expert-signup']}>
-                <React.Fragment>
-                    <NavbarHomepage />
-                    <SignupView/>
-                </React.Fragment>
-            </Route>
+            <Route path='/scientist-signup'
+                   element={<React.Fragment><NavbarHomepage /><SignupView/></React.Fragment>}/>
 
-            <Route path="/">
-                <React.Fragment>
-                    <HomepageManager />
-                </React.Fragment>
-            </Route>
-        </Switch>
+            <Route path='/user-signup'
+                   element={<React.Fragment><NavbarHomepage /><SignupView/></React.Fragment>}/>
+
+            <Route path='/expert-signup'
+                   element={<React.Fragment><NavbarHomepage /><SignupView/></React.Fragment>}/>
+
+            <Route path="/" element={<React.Fragment><HomepageManager /></React.Fragment>}/>
+        </Routes>
     )
 }
 

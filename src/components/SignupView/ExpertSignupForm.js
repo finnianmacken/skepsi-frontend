@@ -2,7 +2,7 @@ import React, { useReducer, useEffect, useState } from 'react';
 import { Button, Checkbox, Form, Label, Divider } from 'semantic-ui-react'
 import { gql, useMutation } from "@apollo/client"
 import { isValidEmail, isValidPassword, isValidUsername } from "../../utility/user-validators.js"
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import auth0 from "auth0-js"
 import { useAuth0 } from "@auth0/auth0-react";
 import ScientistDomainPicker from '../ScientistDomainPicker/ScientistDomainPicker.js'
@@ -72,7 +72,7 @@ function ExpertSignupForm(){
     dispatch({type:`${e.target.name}Change`, payload: user_input})
   }
 
-  const history = useHistory()
+  const history = useNavigate()
 
   useEffect(() => {
     dispatch({type: 'emailExists', payload: false})

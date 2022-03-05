@@ -1,12 +1,12 @@
 import React from 'react'
-import {useHistory} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import {Auth0Provider} from "@auth0/auth0-react"
 
 const Auth0ProviderWithHistory = ({children}) => {
     const domain = "skepsi.us.auth0.com"
     const clientId = "V1VsPEgl7mgPORdnpFApnJVWLvf4xkbe"
 
-    const history = useHistory()
+    const history = useNavigate()
 
     // const [prevHistory, setPrevHistory] = React.useState()
     //
