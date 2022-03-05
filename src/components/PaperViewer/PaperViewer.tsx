@@ -1,7 +1,7 @@
 import React, {useCallback, useMemo, useRef, useState} from "react"
 import {DraggableCore} from "react-draggable"
 import {Set, Map, List} from "immutable"
-import {VscInfo, VscSymbolRuler, VscFileMedia, VscBook} from "react-icons/all"
+import {VscInfo, VscSymbolRuler, VscFileMedia, VscBook} from "react-icons/vsc"
 import { Icon } from 'semantic-ui-react'
 
 import Annotation, {AnnotationType} from "../../logic/annotation"

@@ -200,7 +200,7 @@ function HomepageFinal(props){
                showThumbs={false}
               >
                {props.topics.map((topic, index)=>
-                <>
+                <React.Fragment key={index}>
                 <div className={styles.topicViewWrapper}>
                   {/*insert homepage cover designs here*/}
                   <WhitespaceHomepageCover
@@ -223,13 +223,13 @@ function HomepageFinal(props){
                   </div>
                   </div>
                 </div>
-                </>
+                </React.Fragment>
                )}
             </Carousel>
             </Fade>
           </div>
       </div>
-åå
+
     </div>
 
   )
